@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>climate.local</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./static/bootstrap_3.3.7/css/bootstrap.min.css">
+  <!-- copied from https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css -->
+  <script src="./static/jquery.min.js"></script>
+  <!-- copied from https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js -->
+  <script src="./static/bootstrap_3.3.7/js/bootstrap.min.js"></script>
+  <!-- copied from https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js -->
+  </head>
+<body>
+
+<div class="container-fluid">
+  <h3>Open Source Climatic Exposure Test Cabinet Example V1.0</h3>
+	<div class="row">
+		<div class="col-sm-2">
+					Light status:
+					{% if state_light == 'off' %}
+						<b>off</b>
+					{% elif state_light == 'on' %}
+						<b>on</b>
+					{% endif %}
+		</div>
+		<div class="col-sm-2">
+					Cooling/Heating:
+					{% if state_cooling == 'on' %}
+						<b>cooling</b>
+					{% elif state_heating == 'on' %}
+						<b>heating</b>
+					{% else %}
+						<b>off</b>
+					{% endif %}
+		</div>
+		<div class="col-sm-2">
+					Temperature is:
+					<b>{{ temp_measured }} °C</b>
+		</div>
+		<div class="col-sm-2">
+					Temperature should be:
+					<b>{{ temp_desired }} °C</b>
+		</div>
+		<div class="col-sm-2">
+					Light on / off:
+					<b>{{ light_on_time }} / {{ light_off_time }}</b>
+		</div>
+		<div class="col-sm-2">
+					Last Update: <br>
+					{{ timestamp_measurement }}
+	</div>
+</div>
+
+<br>
+
+<div class="container-fluid">
+	<form action="/">
+	<a href="/" class="btn btn-info btn-md" role=button>Check for Update</a>
+	<a href="/input" class="btn btn-info btn-md" role=button>Change Setup</a>
+	</form>
+</div>
+
+<br>
+
+<div class="container-fluid">
+	<h3>Graph</h3>
+	<img class="img-responsive" src="/static/{{ plot_png }}" alt="Plot not avilable. Try checking for an update in a while...">
+</div>
+<div>
+    <a download href="/static/{{ data_log }}">Download data.log</a>
+</div>
+
+
+
+</body>
+</html>
+
