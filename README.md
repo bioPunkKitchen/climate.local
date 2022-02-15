@@ -45,3 +45,6 @@ dem RasPi einsehen. Entweder in der log.txt oder in den alten Logs unter
 
 Der Zugang zum Pi ist: ssh pi@climate.local
 Passwort:XXX
+
+![BMBF_gefördert vom_deutsch](https://user-images.githubusercontent.com/29493121/154106082-bd94244b-91b7-4321-b3c2-514690e07f42.jpg)
+Für den Inhalt dieser Seite ist das BMBF nicht verantwortlich
